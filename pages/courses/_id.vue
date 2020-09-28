@@ -1,41 +1,49 @@
 <template>
-  <div>
-    <header>
-      <h1><img class="title" src="~/assets/images/title.png" alt="スーパーマリオ64完全攻略サイト" /></h1>
-      <Menu />
-    </header>
-    <main>
-      <adsbygoogle :ad-slot="'\'' + GOOGLE_ADSENSE_SLOT + '\''" :ad-style="{ display: 'block' }" :ad-format="'auto'" />
-      <section>
-        <h2>コース{{ $route.params.id | zeroPadding(2) }} {{ $data.course.title }}</h2>
-        <div class="contents">
-          <div v-for="star in $data.course.stars" :key="star.id" class="subsection">
-            <h3>☆{{ star.id }} {{ star.title }}</h3>
-            <video :src="`/captures/${zeroPadding($data.course.id, 2)}_${star.id}.mp4`" controls></video>
+  <div class="base">
+    <div class="left">
+      <adsbygoogle :ad-slot="'\'' + GOOGLE_ADSENSE_SLOT2 + '\''" :ad-style="{ display: 'block' }" :ad-format="'auto'" />
+    </div>
+    <div class="central">
+      <header>
+        <h1><img class="title" src="~/assets/images/title.png" alt="スーパーマリオ64完全攻略サイト" /></h1>
+        <Menu />
+      </header>
+      <main>
+        <adsbygoogle :ad-slot="'\'' + GOOGLE_ADSENSE_SLOT1 + '\''" :ad-style="{ display: 'block' }" :ad-format="'auto'" />
+        <section>
+          <h2>コース{{ $route.params.id | zeroPadding(2) }} {{ $data.course.title }}</h2>
+          <div class="contents">
+            <div v-for="star in $data.course.stars" :key="star.id" class="subsection">
+              <h3>☆{{ star.id }} {{ star.title }}</h3>
+              <video :src="`/captures/${zeroPadding($data.course.id, 2)}_${star.id}.mp4`" controls></video>
+            </div>
           </div>
-        </div>
-      </section>
-      <section>
-        <div class="contents">
-          <div class="pagenation">
-            <nuxt-link v-if="coursePrev" :to="`/courses/${coursePrev.id}/`">
-              <div class="prev">
-                <p class="course-id">コース{{ coursePrev.id | zeroPadding(2) }}</p>
-                <p class="course-title">{{ coursePrev.title }}</p>
-              </div>
-            </nuxt-link>
-            <div class="vertical-line" />
-            <nuxt-link v-if="courseNext" :to="`/courses/${courseNext.id}/`">
-              <div class="next">
-                <p class="course-id">コース{{ courseNext.id | zeroPadding(2) }}</p>
-                <p class="course-title">{{ courseNext.title }}</p>
-              </div>
-            </nuxt-link>
-            <br class="clear" />
+        </section>
+        <section>
+          <div class="contents">
+            <div class="pagenation">
+              <nuxt-link v-if="coursePrev" :to="`/courses/${coursePrev.id}/`">
+                <div class="prev">
+                  <p class="course-id">コース{{ coursePrev.id | zeroPadding(2) }}</p>
+                  <p class="course-title">{{ coursePrev.title }}</p>
+                </div>
+              </nuxt-link>
+              <div class="vertical-line" />
+              <nuxt-link v-if="courseNext" :to="`/courses/${courseNext.id}/`">
+                <div class="next">
+                  <p class="course-id">コース{{ courseNext.id | zeroPadding(2) }}</p>
+                  <p class="course-title">{{ courseNext.title }}</p>
+                </div>
+              </nuxt-link>
+              <br class="clear" />
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
+    <div class="right">
+      <adsbygoogle :ad-slot="'\'' + GOOGLE_ADSENSE_SLOT2 + '\''" :ad-style="{ display: 'block' }" :ad-format="'auto'" />
+    </div>
   </div>
 </template>
 
@@ -50,7 +58,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      GOOGLE_ADSENSE_SLOT: process.env.GOOGLE_ADSENSE_SLOT,
+      GOOGLE_ADSENSE_SLOT1: process.env.GOOGLE_ADSENSE_SLOT1,
+      GOOGLE_ADSENSE_SLOT2: process.env.GOOGLE_ADSENSE_SLOT2,
       course: courses[+this.$route.params.id - 1],
       coursePrev: courses[+this.$route.params.id - 2] || false,
       courseNext: courses[+this.$route.params.id] || false,

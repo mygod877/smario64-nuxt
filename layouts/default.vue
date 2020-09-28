@@ -1,5 +1,5 @@
 <template>
-  <div class="base">
+  <div>
     <Nuxt />
   </div>
 </template>
@@ -41,9 +41,22 @@ h3
     transform: scale(-1, 1)
 
 .base
+  display: flex
+  justify-content: center
+.dummy
+  border: 1px solid #111
+  width: 200px
+  height: 500px
+
+.central
   width: 1280px
-  margin: 30px auto
+  margin: 30px 0
   background-color: rgba(255, 255, 255, 0.2)
+
+.left, .right
+  margin: 30px 10px
+  position: sticky
+  align-self: baseline
 
 header
   text-align: center
