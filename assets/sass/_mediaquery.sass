@@ -1,0 +1,7 @@
+$breakpoints:                         ("sm": "screen and (max-width: 559px)")
+$breakpoints: map-merge($breakpoints, ("md": "screen and (max-width: 959px)"))
+$breakpoints: map-merge($breakpoints, ("lg": "screen and (min-width: 2048x)"))
+$breakpoints: map-merge($breakpoints, ("xg": "screen and (min-width: 4096x)"))
+=mq($breakpoint: md)
+  @media #{map-get($breakpoints, $breakpoint)}
+    @content

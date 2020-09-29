@@ -19,6 +19,8 @@ export default Vue.extend({
 menu
   display: flex
   justify-content: space-around
+  +mq(sm)
+    flex-wrap: wrap
 .tile
   width: 300px
   height: 200px
@@ -28,9 +30,16 @@ menu
   align-items: center
   font-size: 2.5em
   transition: all 0.2s
+  border: outset 20px #fff
+  +mq(sm)
+    width: 160px
+    height: 100px
+    font-size: 20px
+    border-width: 10px
+    margin: 10px
   &.red
     background-color: #8C332F
-    border: outset 20px #AB3845
+    border-color: #AB3845
     &:hover
       background-color: darken(#8C332F, 8%)
       border-color: darken(#AB3845, 8%)
@@ -39,7 +48,7 @@ menu
       border-color: darken(#AB3845, 15%)
   &.green
     background-color: #0D8102
-    border: outset 20px #0E9E00
+    border-color: #0E9E00
     &:hover
       background-color: darken(#0D8102, 8%)
       border-color: darken(#0E9E00, 8%)
@@ -48,7 +57,7 @@ menu
       border-color: darken(#0E9E00, 15%)
   &.blue
     background-color: #306DC6
-    border: outset 20px #4393F6
+    border-color: #4393F6
     &:hover
       background-color: darken(#306DC6, 8%)
       border-color: darken(#4393F6, 8%)
@@ -57,7 +66,7 @@ menu
       border-color: darken(#4393F6, 15%)
   &.pink
     background-color: #A448AD
-    border: outset 20px #C566CE
+    border-color: #C566CE
     &:hover
       background-color: darken(#A448AD, 8%)
       border-color: darken(#C566CE, 8%)
@@ -78,6 +87,11 @@ menu
     top: 0
     left: 0
     opacity: 0.2
+    +mq(sm)
+      background-size: 120px auto
+      width: 160px
+      height: 100px
+      margin: -10px
   & a
     display: inline-flex
     margin: -20px
@@ -86,4 +100,8 @@ menu
     justify-content: center
     align-items: center
     z-index: 10
+    +mq(sm)
+      width: 160px
+      height: 100px
+      margin: -10px
 </style>

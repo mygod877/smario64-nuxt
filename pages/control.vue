@@ -447,4 +447,7 @@ export default Vue.extend({
 video
   width: 800px
   height: 600px
+  +mq(sm)
+    width: 100%
+    height: auto
 </style>

@@ -75,17 +75,6 @@ export default Vue.extend({
 </script>
 
 <style lang="sass" scoped>
-ul
-  li
-    list-style: none
-    padding: 10px 0
-    font-size: 120%
-    &::before
-      content: "-"
-      margin-right: 10px
-      color: #888
-  a
-    color: #111
 .pagenation
   position: relative
   .prev, .next
@@ -98,21 +87,40 @@ ul
     transition: all 0.2s
     &:hover
       background-color: rgba(255, 255, 255, 0.8)
+    +mq(sm)
+      width: 100%
+      height: 50px
+      margin: 5px
+      background-size: 40px 40px
+      padding: 0
   .prev
     float: left
     text-align: right
     background-image: url(~assets/images/icon_left.png)
+    +mq(sm)
+      margin-bottom: 10px
+      text-align: left
+      padding-left: 50px
   .next
     float: right
     text-align: left
     background-image: url(~assets/images/icon_right.png)
     background-position-x: right
+    +mq(sm)
+      margin-top: 10px
+      text-align: right
+      padding-right: 50px
   .vertical-line
     width: 5px
     height: 120px
     background-color: #4b4b4b
     position: absolute
     left: calc(50% - 2.5px)
+    +mq(sm)
+      width: 100%
+      height: 2px
+      left: auto
+      top: calc(50% - 1px)
   .course-id
     font-size: 120%
   .course-title

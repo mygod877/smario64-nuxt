@@ -61,6 +61,7 @@ export default {
         pageLevelAds: true,
       },
     ],
+    "@nuxtjs/style-resources",
   ],
   /*
    ** Build configuration
@@ -80,5 +81,8 @@ export default {
     GOOGLE_ADSENSE_ID: process.env.NUXT_ENV_GOOGLE_ADSENSE_ID || "ca-pub-0000000000000000",
     GOOGLE_ADSENSE_SLOT1: process.env.NUXT_ENV_GOOGLE_ADSENSE_SLOT1 || "0000000000",
     GOOGLE_ADSENSE_SLOT2: process.env.NUXT_ENV_GOOGLE_ADSENSE_SLOT2 || "0000000000",
+  },
+  styleResources: {
+    sass: ["@/assets/sass/_mediaquery.sass"],
   },
 }

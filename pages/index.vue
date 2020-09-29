@@ -52,6 +52,4 @@ export default Vue.extend({
   justify-content: center
   align-items: center
   text-align: center
-img.title
-  width: 1280px
 </style>
